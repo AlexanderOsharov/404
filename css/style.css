@@ -1,0 +1,74 @@
+:root{
+  --bg:#040318;
+  --panel:#0e1320;
+  --panel-opaque: rgba(14,19,32,0.92);
+  --accent:#ff4d6d;
+  --accent2:#7c3aed;
+  --muted:#98a0b0;
+  --glass: rgba(255,255,255,0.03);
+  font-family: Inter, "IBM Plex Mono", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,#02021a,#041034);color:#e8eef8;overflow:hidden}
+button{cursor:pointer;border:0;padding:8px 12px;border-radius:8px;font-weight:700;background:linear-gradient(180deg,var(--accent2),var(--accent));color:#051018}
+
+/* Ugly-first */
+.ugly{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;padding:24px;transition:opacity .8s ease}
+.ugly-header h1{font-size:36px;margin:0;letter-spacing:2px}
+.ugly-header p{color:var(--muted);margin:6px 0 18px}
+.ugly-main{background:var(--panel);padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,.6);max-width:740px;text-align:left}
+.muted{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.03);padding:8px;border-radius:8px}
+.ugly-foot{position:fixed;bottom:18px;left:18px;color:var(--muted)}
+
+/* break animation */
+.broken .ugly{filter:blur(0.6px);transform:translateY(0);animation:shake .9s linear infinite}
+@keyframes shake{0%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}100%{transform:translateX(0)}}
+.fall-letter{display:inline-block;transform-origin:center;animation:fall 1.2s ease forwards}
+@keyframes fall{0%{transform:translateY(0) rotate(0)}100%{transform:translateY(140vh) rotate(720deg)}}
+
+/* Galaxy stage */
+.stage{position:fixed;inset:0;display:flex;align-items:stretch;justify-content:stretch}
+.hidden{display:none}
+#galaxyCanvas{width:100%;height:100%;display:block;background:radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.12), transparent), radial-gradient(900px 400px at 90% 80%, rgba(14,165,164,0.06), transparent)}
+#constellationCanvas{position:absolute;inset:0;pointer-events:none;z-index:2}
+.overlay{position:absolute;top:18px;left:18px;display:flex;gap:12px;align-items:center}
+.logoMini{font-weight:900;padding:8px 12px;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#07121a;font-family:monospace}
+.controls{display:flex;gap:8px}
+
+/* refined member panel - less transparent (more readable) */
+#memberPanel{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);max-width:520px;width:min(92%,520px);z-index:50;padding:14px;background:var(--panel-opaque);border-radius:12px;box-shadow:0 20px 60px rgba(2,6,23,.7);border:1px solid rgba(255,255,255,0.03)}
+#memberPanel.hidden{display:none}
+#memberPanel .close{position:absolute;right:12px;top:12px;background:transparent;color:var(--muted);border-radius:6px;padding:6px}
+.member-card{display:flex;gap:12px;align-items:flex-start}
+.m-avatar{width:84px;height:84px;border-radius:10px;object-fit:cover;background:linear-gradient(135deg,var(--accent2),var(--accent))}
+.m-body{flex:1}
+.m-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.m-name{margin:0;font-size:18px}
+.m-role{color:var(--muted);font-size:13px}
+.m-bio{margin:8px 0;color:#dfe9ff}
+.m-quirks{margin:6px 0 0;padding-left:18px;color:var(--muted);font-size:13px}
+.m-actions{display:flex;gap:8px;margin-top:10px}
+.m-actions button{padding:8px 10px;border-radius:8px;background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.04)}
+
+/* overlay message for Konami mode */
+.overlay-message{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-size:48px;color:rgba(255,20,60,0.95);z-index:200;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,0.6)}
+.overlay-message.hidden{display:none}
+
+/* secret portal */
+.secret{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(2,6,23,0.7),rgba(2,6,23,0.9));z-index:100}
+.secret.hidden{display:none}
+.secret-inner{background:linear-gradient(180deg,#08131a,#0b0b12);padding:20px;border-radius:12px;max-width:640px;text-align:center}
+.secret .portal-wrap{margin-top:12px}
+.portal-wrap.hidden{display:none}
+.portal-wrap iframe{width:100%;height:420px;border-radius:8px;border:1px solid rgba(255,255,255,0.04)}
+.portal-wrap a{display:inline-block;margin-top:8px;color:var(--muted);text-decoration:underline}
+
+/* help modal */
+.secret-inner ul{text-align:left}
+
+/* responsive */
+@media (max-width:640px){
+  .m-avatar{width:64px;height:64px}
+  #memberPanel{width:min(92%,360px)}
+}

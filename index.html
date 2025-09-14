@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>404 — авторы контролируемого хаоса</title>
+<link rel="icon" href="images/icon.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="shell" class="ugly">
+  <header class="ugly-header">
+    <h1 id="siteTitle">Команда 404</h1>
+    <p id="subtitle">Мы создаём ошибки, которые работают.</p>
+  </header>
+
+  <main class="ugly-main">
+    <p>Эта страница — артистический черновик. Подождите несколько секунд, если осмелитесь.</p>
+    <ul>
+      <li>Простой список</li>
+      <li>Минимум интерактива</li>
+      <li>Подождите 5 секунд — и всё изменится</li>
+    </ul>
+    <button id="forceBreak" class="muted">Принудительно сломать (я готов)</button>
+  </main>
+
+  <footer class="ugly-foot">© 404 — мы ошибаемся с умом</footer>
+</div>
+
+<div id="galaxyStage" class="stage hidden" role="application" aria-label="Галактика команды 404">
+  <canvas id="galaxyCanvas"></canvas>
+  <canvas id="constellationCanvas" class="constellation-canvas"></canvas>
+  <div id="uiOverlay" class="overlay">
+    <div class="logoMini">404</div>
+    <div class="controls">
+      <button id="toggleOrbits">Toggle Orbits</button>
+      <button id="shuffle">Shuffle</button>
+      <button id="toggleConst">Toggle Constellation</button>
+      <button id="reveal404">Секрет 404</button>
+    </div>
+  </div>
+  <div id="memberPanel" class="panel hidden" aria-hidden="true">
+    <button id="closePanel" class="close">✕</button>
+    <div id="memberContent"></div>
+  </div>
+
+  <div id="overlayMessage" class="overlay-message hidden" aria-hidden="true"></div>
+</div>
+
+<div id="secret404" class="secret hidden" aria-hidden="true">
+  <div class="secret-inner">
+    <h2>404 — not lost</h2>
+    <p>Вы нашли секрет. Нажмите <strong>Открыть портал</strong> — мы попробуем открыть Telegram прямо в окне.</p>
+    <div class="secret-actions">
+      <button id="openPortal">Открыть портал</button>
+      <button id="closeSecret">Закрыть</button>
+    </div>
+    <div id="portalFrameWrap" class="portal-wrap hidden">
+      <iframe id="portalFrame" sandbox="allow-scripts allow-forms" src="" frameborder="0"></iframe>
+      <p class="muted small">Если фрейм пуст или сообщение не загрузилось — нажмите кнопку ниже.</p>
+      <a id="portalFallback" class="muted" href="https://t.me/grudina2025" target="_blank" rel="noopener">Открыть в новой вкладке</a>
+    </div>
+  </div>
+</div>
+
+<div id="help404" class="secret hidden" aria-hidden="true">
+  <div class="secret-inner">
+    <h2>Справка 404</h2>
+    <p>Небольшой набор шуток и подсказок:</p>
+    <ul>
+      <li>Тройной клик по планете — альтернативная биография</li>
+      <li>Konami (↑↑↓↓←→←→BA) — режим безумной 404-гравитации</li>
+      <li>Shift + ? — открыть эту справку</li>
+    </ul>
+    <div style="margin-top:12px">
+      <button id="closeHelp">Закрыть</button>
+    </div>
+  </div>
+</div>
+
+<template id="member-template">
+  <article class="member-card">
+    <img class="m-avatar" src="" alt="">
+    <div class="m-body">
+      <div class="m-head">
+        <h3 class="m-name"></h3>
+        <span class="m-role small muted"></span>
+      </div>
+      <p class="m-bio"></p>
+      <ul class="m-quirks"></ul>
+      <div class="m-actions">
+        <button class="m-contact">Написать</button>
+        <button class="m-more">Ещё факты</button>
+      </div>
+    </div>
+  </article>
+</template>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
